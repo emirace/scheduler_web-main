@@ -21,6 +21,7 @@ import {
 } from './slices/scheduleSlice'
 
 import { findFirstShiftDate } from '@/utils/findFirstShiftDate'
+import { gridSlice, GridSliceT } from './slices/gridSlice'
 
 type MyState = ModalSliceT &
   LoadingSliceT &
@@ -29,6 +30,7 @@ type MyState = ModalSliceT &
   LocationsStateT &
   GettingStartedStateT &
   ScheduleDateRangeSliceT &
+  GridSliceT &
   ScheduleSliceT & {
     hasHydrated: boolean
     setHydrated: (isHydrated: boolean) => void
@@ -44,6 +46,7 @@ const storeCreator: StateCreator<
   ...loadingSlice(set, get, api),
   ...dateSlice(set, get, api),
   ...scheduleSlice(set, get, api),
+  ...gridSlice(set, get, api),
   ...filterSlice(set, get, api),
   ...locationsSlice(set, get, api),
   ...gettingStartedSlice(set, get, api),
