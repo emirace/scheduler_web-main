@@ -1,0 +1,6 @@
+.addShiftButton {
+  @include primaryButton(76px, 33px);
+  img {
+    margin-right: 8px;
+  }
+}

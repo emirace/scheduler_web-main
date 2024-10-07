@@ -1,0 +1,156 @@
+body {
+  overflow: hidden;
+  color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+}
+
+.react-datepicker__time-container {
+  color: $primary-color;
+  @include interRegular();
+  font-size: 14px;
+}
+
+.react-datepicker__header--time {
+  display: none;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-left: 1px solid $border-gray;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-thumb {
+  background-color: $secondary-color;
+  border-radius: 6px;
+  border: 0.5px solid transparent;
+  background-clip: content-box;
+  height: 30px;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-thumb:hover {
+  background-color: $green-primary-color;
+}
+.react-datepicker__time {
+  background: none !important;
+}
+
+.error-message {
+  color: #ff0033 !important;
+  font-size: 12px;
+  @include interRegular();
+  margin-top: 5px;
+}
+
+.row:last-child .cell:last-child {
+  border-radius: 0 0 5px 0 !important;
+}
+
+.row:last-child .cell {
+  border-bottom: none;
+}
+
+.toast-error-message {
+  width: 500px !important;
+  @include interRegular();
+  margin-left: auto;
+}
+
+.modal-video-movie-wrap {
+  padding-bottom: 0 !important;
+  width: 900px !important;
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+}
+.modal-video-inner {
+  padding: 0 !important;
+  width: 900px !important;
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+}
+
+.modal-video-body {
+  padding: 0 !important;
+  width: 900px !important;
+
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+}
+.modal-video {
+  position: fixed;
+  top: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.modal-video-body iframe {
+  width: 900px !important;
+  min-width: 900px !important;
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+}
+
+.upload-step.modal-video {
+  position: fixed;
+  margin-top: -150px;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 9999;
+  width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.modal-video-close-btn {
+  position: absolute;
+  top: -30px;
+  width: 30px;
+  height: 30px;
+
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 50px;
+  color: #000;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.modal-video-close-btn:before {
+  content: '×';
+}
+
+.modal-video-body iframe {
+  width: 100%;
+  min-width: 1200px;
+  min-height: 700px;
+  border: none;
+}
+
+.step-inner {
+  position: relative;
+}
+
+.btn-icon {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}

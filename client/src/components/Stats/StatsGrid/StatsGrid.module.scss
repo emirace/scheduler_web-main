@@ -1,0 +1,38 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.cell {
+  position: relative;
+  flex: 1;
+  border: $border-grid;
+  border-top: none;
+  border-left: none;
+  height: 72px;
+  min-width: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+.cell:last-child {
+  border-right: none;
+}
+.row:last-child .cell {
+  border-bottom: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.cell p {
+  color: $primary-color;
+  font-size: 14px;
+  @include interMedium();
+}

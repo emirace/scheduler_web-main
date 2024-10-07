@@ -1,0 +1,62 @@
+.addShiftButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include gridButton();
+}
+
+.editShiftButton {
+  position: absolute;
+  bottom: 6px;
+
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include gridButton();
+}
+
+.cellButton {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s 0.3s;
+}
+
+.cell:hover .cellButton {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s; /* Remove delay when showing the button */
+}
+
+.cell {
+  position: relative;
+  flex: 1;
+  border: $border-grid;
+  border-top: none;
+  border-left: none;
+  height: 72px;
+  min-width: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+.cell:last-child {
+  border-right: none;
+}
+.row:last-child .cell {
+  border-bottom: none;
+  border-radius: 0 5px 5px 0;
+}

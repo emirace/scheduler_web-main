@@ -1,0 +1,104 @@
+.container {
+  background: $background-color;
+  position: fixed;
+  z-index: 9999;
+  width: 100vw;
+
+  .logo {
+    margin-left: -10px;
+    margin-right: 10px;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .menuItem {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $primary-color;
+    text-decoration: none;
+    cursor: pointer;
+    @include interMedium();
+    font-size: 16px;
+    margin-left: 30px;
+    :hover {
+      transition: all 0.2s ease;
+      color: $green-primary-color;
+    }
+  }
+
+  .submenuIcon {
+    margin-left: 10px;
+  }
+
+  .subMenuWrapper {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .subMenuSubWrapper {
+    position: absolute;
+    left: 0;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    top: 40px;
+    width: 320px;
+    z-index: 999;
+  }
+  .subMenuItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    color: $primary-color;
+    text-decoration: none;
+    cursor: pointer;
+    @include interMedium();
+    font-size: 14px;
+    :hover {
+      color: $green-primary-color;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  .loginButton {
+    @include normalButton(90px, 41px);
+  }
+  .demoButton {
+    @include normalButton(141px, 41px);
+    margin-left: 20px;
+  }
+  .greenButton {
+    @include greenButton(170px, 41px);
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+}
+
+.wrapper {
+  min-height: 10vh;
+  display: flex;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+}

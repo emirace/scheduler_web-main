@@ -1,0 +1,8 @@
+.title {
+  font-size: 18px;
+  @include interMedium();
+  color: $primary-color;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

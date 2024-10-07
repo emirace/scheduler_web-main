@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  height: 54px;
+  border-bottom: $border-grid;
+}
+
+.dayHeader {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 39px;
+  border-right: $border-grid;
+  &:last-child {
+    border-right: none;
+  }
+
+  color: $primary-color;
+  p {
+    color: $secondary-color;
+    font-size: 12px;
+    @include interRegular();
+    letter-spacing: -0.36px;
+  }
+  span {
+    color: $primary-color;
+    font-size: 14px;
+    @include interMedium();
+    letter-spacing: -0.42px;
+  }
+}
+
+.currentDay {
+  color: $green-primary-color !important;
+}

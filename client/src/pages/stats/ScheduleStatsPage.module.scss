@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background: $background-color;
+  padding-bottom: 109px;
+}
+.wrapper {
+  width: calc(100vw - 60px);
+  margin: 0 auto;
+  background: $background-color;
+}

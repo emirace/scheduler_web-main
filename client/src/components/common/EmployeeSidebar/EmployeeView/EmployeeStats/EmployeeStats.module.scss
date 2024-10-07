@@ -1,0 +1,18 @@
+.employeeStats {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  span {
+    color: $description-color;
+    font-size: 12px;
+    @include interRegular();
+  }
+  p {
+    color: $description-color;
+    font-size: 12px;
+    @include interSemiBold();
+  }
+}

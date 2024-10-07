@@ -1,0 +1,136 @@
+// Colors
+$label-colour: #bbb;
+$disabled-colour: #ddd;
+$toggle-colour: #2f855a;
+$white: #fff;
+$focus-color: #ff0;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 18px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: left;
+  .toggleSwitchCheckbox {
+    display: none;
+  }
+  .toggleSwitchLabel {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0 solid $label-colour;
+    border-radius: 20px;
+    margin: 0;
+    &:focus {
+      outline: none;
+      > span {
+        box-shadow: 0 0 2px 5px red;
+      }
+    }
+    > span:focus {
+      outline: none;
+    }
+  }
+  .toggleSwitchInner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+    &:before,
+    &:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 34px;
+      padding: 0;
+      line-height: 34px;
+      color: white;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    &:before {
+      content: attr(data-yes);
+      text-transform: uppercase;
+      padding-left: 10px;
+      background-color: $toggle-colour;
+      color: $white;
+    }
+  }
+  .toggleSwitchDisabled {
+    background-color: $disabled-colour;
+    cursor: not-allowed;
+    &:before {
+      background-color: $disabled-colour;
+      cursor: not-allowed;
+    }
+  }
+  .toggleSwitchInner:after {
+    content: attr(data-no);
+    text-transform: uppercase;
+    padding-right: 10px;
+    background-color: $label-colour;
+    color: $white;
+    text-align: right;
+  }
+  .toggleSwitchSwitch {
+    display: block;
+    width: 24px;
+    margin: 5px;
+    background: $white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 40px;
+    border: 0 solid $label-colour;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+  }
+  .toggleSwitchCheckbox:checked + .toggleSwitchLabel {
+    .toggleSwitchInner {
+      margin-left: 0;
+    }
+    .toggleSwitchSwitch {
+      right: 0px;
+    }
+  }
+  width: 40px;
+  .toggleSwitchInner {
+    &:after,
+    &:before {
+      content: '';
+      height: 22px;
+      line-height: 22px;
+    }
+  }
+  .toggleSwitchSwitch {
+    width: 16px;
+    right: 20px;
+    margin: 2px;
+  }
+}
+.label {
+  color: $primary-color;
+  font-size: 14px;
+  @include interMedium();
+  line-height: normal;
+  margin-bottom: 7px;
+}
+.description {
+  color: $font-gray;
+  font-size: 12px;
+  @include interRegular();
+  max-width: 500px;
+}

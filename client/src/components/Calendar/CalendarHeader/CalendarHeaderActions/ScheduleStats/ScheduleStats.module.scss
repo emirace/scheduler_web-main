@@ -1,0 +1,4 @@
+.button {
+  @include primaryButton(60px, 33px);
+  margin-left: 15px;
+}

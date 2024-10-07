@@ -1,0 +1,40 @@
+.overlay {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  fill: rgba(61, 58, 52, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+.wrapper {
+  @include modalWrapper(720px, 365px, 28px, 48px);
+}
+
+.header {
+  @include interMedium();
+  font-size: 14px;
+  display: flex;
+  align-self: flex-start;
+  color: $primary-color;
+}
+
+.closeButton {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  border: none;
+  background: transparent;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}

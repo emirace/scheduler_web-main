@@ -1,0 +1,30 @@
+.startSchedulingButton {
+  width: 180px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 0.5px solid rgba(0, 91, 65, 0.3);
+  background: $green-primary-color;
+  box-shadow: 0px 0px 3px 0px rgba(155, 154, 151, 0.12) inset;
+  border: none;
+  @include interMedium();
+  font-size: 14px;
+  color: $white;
+
+  svg {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  img {
+    margin-right: 8px;
+  }
+}

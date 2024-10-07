@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 50px;
+  .button {
+    @include greenButton(64px, 35px);
+    display: flex;
+    // move it to the right
+    margin-left: auto;
+    margin-top: 40px;
+  }
+}

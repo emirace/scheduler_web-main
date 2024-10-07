@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 18px;
+  p {
+    color: $description-color;
+    @include interRegular();
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+.dropdownIndicator {
+  margin-right: 10px;
+}

@@ -1,0 +1,39 @@
+.container {
+  padding-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  h1 {
+    font-size: 17px;
+    color: $green-primary-color;
+    @include interSemiBold();
+  }
+  h3 {
+    font-size: 14px;
+    color: $primary-color;
+    @include interMedium();
+  }
+  p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 14px;
+    color: $secondary-color;
+    @include interSemiBold();
+    text-transform: uppercase;
+    span {
+      @include interRegular();
+      margin-right: 6px;
+    }
+  }
+}
+
+.link {
+  @include interSemiBold();
+  &:hover {
+    text-decoration: underline;
+  }
+}

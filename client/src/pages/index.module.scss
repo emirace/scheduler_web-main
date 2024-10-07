@@ -1,0 +1,16 @@
+.container {
+  height: 100%;
+  width: 100%;
+  background: $background-color;
+  padding-bottom: 130px;
+}
+.wrapper {
+  width: calc(100vw - 60px);
+  margin: 0 auto;
+  background: $background-color;
+}
+
+.mainContainer {
+  background: $background-color;
+  position: relative;
+}

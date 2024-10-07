@@ -1,0 +1,14 @@
+.container {
+  // center the title
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  input {
+    border: none;
+    outline: none;
+    text-align: left;
+    min-width: 300px;
+    text-decoration: underline;
+  }
+}

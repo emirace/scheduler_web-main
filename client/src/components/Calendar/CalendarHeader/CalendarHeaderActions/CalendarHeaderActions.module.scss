@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 73px;
+  padding: 0 15px;
+  border-bottom: $border-grid;
+  @include devices(largeTablet) {
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+  }
+}
+.leftButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @include devices(largeTablet) {
+    margin: 10px 0;
+  }
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  @include interMedium();
+  font-size: 16px;
+  text-decoration: underline;
+
+  @include devices(largeTablet) {
+    position: inherit;
+    margin-bottom: 10px;
+    // center
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+.rightButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  button {
+    margin-left: 14px;
+  }
+  @include devices(largeTablet) {
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+}

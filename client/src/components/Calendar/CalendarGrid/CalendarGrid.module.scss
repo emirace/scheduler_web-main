@@ -1,0 +1,10 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}

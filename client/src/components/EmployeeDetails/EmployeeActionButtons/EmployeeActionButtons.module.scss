@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 68px;
+  .deleteButton {
+    @include redButton(90px, 35px);
+  }
+  .cancelButton {
+    @include cancelButton(80px, 35px);
+    margin-right: 18px;
+  }
+  .editButton {
+    @include greenButton(69px, 35px);
+  }
+  .rightActionButtons {
+    display: flex;
+    flex-direction: row;
+  }
+}

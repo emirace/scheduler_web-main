@@ -1,0 +1,50 @@
+.nextStepButton {
+  margin-top: 24px;
+  @include primaryButton(120px, 35px);
+  align-self: flex-end;
+  position: absolute;
+  // bottom: 30px;
+  // right: 48px;
+  bottom: 0px;
+  right: 0px;
+  img {
+    margin-left: 10px;
+  }
+}
+.generateScheduleButton {
+  margin-top: 24px;
+  @include primaryButton(200px, 35px);
+  align-self: flex-end;
+  position: absolute;
+  // bottom: 30px;
+  // right: 48px;
+  bottom: 0px;
+  right: 0px;
+  img {
+    margin-left: 10px;
+  }
+}
+.prevStepButton {
+  margin-top: 24px;
+  @include primaryButton(120px, 35px);
+  position: absolute;
+  // bottom: 30px;
+  bottom: 0px;
+  img {
+    margin-right: 10px;
+  }
+}
+
+.stepButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

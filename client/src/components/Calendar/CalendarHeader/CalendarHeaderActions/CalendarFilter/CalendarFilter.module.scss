@@ -1,0 +1,30 @@
+.label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: $secondary-color;
+  @include interRegular();
+}
+
+.dropdownTitle {
+  opacity: 1;
+  pointer-events: none;
+  cursor: default;
+  background-color: transparent;
+  color: inherit;
+}
+
+.clearFilters {
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: $secondary-color;
+  @include interRegular();
+  cursor: pointer;
+  margin-left: -10px;
+  margin-right: 30px;
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+}

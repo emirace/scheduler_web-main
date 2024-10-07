@@ -1,0 +1,27 @@
+.wrapperContainer {
+  display: flex;
+  flex-direction: column;
+  width: 179px;
+  min-width: 179px;
+  border-right: $border-grid;
+  z-index: 1;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 179px;
+  min-width: 179px;
+  border-right: $border-grid;
+  z-index: 1;
+  border-top: $border-grid;
+}
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  height: 53px;
+  width: 179px;
+  min-width: 179px;
+  border-right: $border-grid;
+  z-index: 1;
+}

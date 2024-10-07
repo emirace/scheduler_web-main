@@ -1,0 +1,304 @@
+.container {
+  margin-top: 150px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.flexCenter {
+  align-items: center;
+}
+
+.howItWorks,
+.faqs,
+.ctaBottom {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.icon img {
+  width: 25px;
+  height: 25px;
+}
+
+.ctaBottom {
+  position: relative;
+  background-color: #3d3a34;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.ctaBottom p {
+  color: #ffffff;
+  @include interMedium();
+  font-size: 18px;
+}
+
+.headingTitle {
+  color: #ffffff;
+  @include interMedium();
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 57px;
+}
+
+.headingTitleHow {
+  @include interMedium();
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.watchDemo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  color: #3d3a34 !important;
+  @include interMedium();
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.feature h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.faq h3 {
+  @include interMedium();
+  font-size: 18px;
+
+  line-height: 21px;
+}
+
+.step h3 {
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.step p {
+  font-size: 16px;
+  text-align: left;
+}
+
+.feature p,
+.faq p {
+  font-size: 18px;
+  color: #666;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  font-size: 16px;
+  padding: 15px 30px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  @include greenButton(200px, 50px);
+  color: #fff !important;
+  @include interMedium();
+}
+
+.greenButton {
+  @include greenButton(200px, 50px);
+  margin: 0 auto;
+  margin-top: 20px;
+  @include interBold();
+}
+
+.demoBtn:hover {
+  color: #3d3a34 !important;
+  background-color: #02010100;
+  border-color: #3d3a34;
+}
+
+.tryBtn {
+  background-color: #19b250;
+  color: #fff;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.tryBtn:hover {
+  transform: scale(1.1);
+}
+
+.transparentBtn {
+  @include primaryButton(200px, 50px);
+  border: 1px solid #19b250;
+  @include interMedium();
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.transparentBtn:hover {
+  color: #fff !important;
+  background-color: #19b250;
+  border-color: #19b250;
+}
+
+.faqsSection {
+  padding: 120px 0;
+}
+
+.faqs {
+  max-width: 800px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.faqsSection h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 40px;
+  line-height: 45px;
+  text-transform: uppercase;
+  @include interMedium();
+}
+
+.faq {
+  border-top: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.faq:first-child {
+  border-top: none;
+}
+
+.faq h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 0;
+  cursor: pointer;
+  @include interMedium();
+}
+
+.faq p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 16px;
+  margin: 5px 0 0;
+  padding: 0 40px 0 0;
+  color: #666;
+  text-align: left;
+  @include interRegular();
+}
+
+.faq.active p {
+  max-height: 200px; /* Adjust as needed */
+}
+
+.toggleIcon {
+  font-size: 30px;
+  margin-left: 10px;
+  @include interRegular();
+  color: #666;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.flexBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  img {
+    margin-top: 5px;
+  }
+  h2 {
+    font-size: 28px;
+    @include interMedium();
+    color: #3d3a34 !important;
+  }
+}
+
+.infoArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 25px;
+  text-align: left;
+  h2 {
+    font-size: 22px;
+    @include interMedium();
+    color: #3d3a34 !important;
+  }
+  p {
+    font-size: 16px;
+    @include interRegular();
+    color: #666;
+    margin-top: 8px;
+  }
+}
+
+.flexRowHowItWorks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.howItWorks {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.divider {
+  position: absolute;
+  max-width: 800px;
+  margin: 0 auto;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.features {
+  margin-top: 80px;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  p {
+    text-align: left;
+  }
+}

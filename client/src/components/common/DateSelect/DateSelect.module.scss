@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  margin-bottom: 18px;
+  h2 {
+    @include interMedium();
+    font-size: 18px;
+  }
+  p {
+    color: $description-color;
+    @include interRegular();
+    font-size: 14px;
+  }
+
+  .dateWrapper {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 10px);
+    p {
+      margin-bottom: 8px;
+    }
+  }
+}

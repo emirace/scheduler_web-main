@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 25px;
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    height: 30px;
+    width: 25px;
+    align-self: center;
+    color: #000;
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  h2 {
+    display: flex;
+    font-size: 18px;
+    @include interMedium();
+    color: $primary-color;
+    align-self: center;
+    min-width: 140px;
+    text-align: center;
+    justify-content: center;
+  }
+}
