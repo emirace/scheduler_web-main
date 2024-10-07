@@ -14,6 +14,7 @@ import 'react-datasheet-grid/dist/style.css'
 import styles from './InputTableGrid.module.scss'
 
 import { useStore } from '@/store/useStore'
+import { LocationData } from '@/store/slices/gridSlice'
 
 type Choice = {
   label: string
@@ -33,8 +34,8 @@ const SelectComponent = React.memo(
     focus,
     stopEditing,
     columnData,
-  }: CellProps<string | null, SelectOptions>) => {
-    const ref = useRef<SelectInstance<Choice, false, GroupBase<Choice>>>(null)
+  }: CellProps<string[] | null, SelectOptions>) => {
+    const ref = useRef<SelectInstance<Choice, true, GroupBase<Choice>>>(null) // Updated to support multi-select
 
     useLayoutEffect(() => {
       if (focus) {
@@ -62,6 +63,20 @@ const SelectComponent = React.memo(
             border: 'none',
             boxShadow: 'none',
             background: 'none',
+            // display: 'flex',
+            // flexWrap: 'nowrap',
+            overflowY: 'auto',
+          }),
+          multiValue: provided => ({
+            ...provided,
+            // flex: '1 0 auto',
+            // maxWidth: '100%',
+          }),
+          multiValueLabel: provided => ({
+            ...provided,
+            // whiteSpace: 'nowrap',
+            // overflow: 'hidden',
+            // textOverflow: 'ellipsis',
           }),
           indicatorSeparator: provided => ({
             ...provided,
@@ -75,20 +90,27 @@ const SelectComponent = React.memo(
             ...provided,
             opacity: active ? 1 : 0,
           }),
+          menuPortal: provided => ({
+            ...provided,
+            zIndex: 9999,
+          }),
         }}
         isDisabled={columnData.disabled}
+        isMulti={true}
         value={
-          columnData.choices.find(({ value }) => value === rowData) ?? null
+          columnData.choices.filter(choice =>
+            rowData?.includes(choice.value),
+          ) ?? []
         }
         menuPortalTarget={document.body}
         menuIsOpen={focus}
-        onChange={choice => {
-          if (choice === null) {
+        onChange={selectedChoices => {
+          if (!selectedChoices) {
             return
           }
-
-          setRowData(choice.value)
-          setTimeout(stopEditing, 0)
+          const selectedValues = selectedChoices.map(choice => choice.value)
+          setRowData(selectedValues)
+          // setTimeout(stopEditing, 0)
         }}
         onMenuClose={() => stopEditing({ nextRow: false })}
         options={columnData.choices}
@@ -99,7 +121,7 @@ const SelectComponent = React.memo(
 
 const selectColumn = (
   options: SelectOptions,
-): Column<string | null, SelectOptions> => ({
+): Column<string[] | null, SelectOptions> => ({
   component: SelectComponent,
   columnData: options,
   disableKeys: true,
@@ -107,9 +129,18 @@ const selectColumn = (
   disabled: options.disabled,
   deleteValue: () => null,
   copyValue: ({ rowData }) =>
-    options.choices.find(choice => choice.value === rowData)?.label ?? null,
-  pasteValue: ({ value }) =>
-    options.choices.find(choice => choice.label === value)?.value ?? null,
+    options.choices
+      .filter(choice => rowData?.includes(choice.value))
+      .map(choice => choice.label)
+      .join(', ') ?? null,
+  pasteValue: ({ value }) => {
+    const labels = value.split(',').map(label => label.trim())
+    return (
+      options.choices
+        .filter(choice => labels.includes(choice.label))
+        .map(choice => choice.value) ?? null
+    )
+  },
 })
 
 export const InputTableGrid = () => {
@@ -156,7 +187,19 @@ export const InputTableGrid = () => {
 
   const employeeColumns = [
     { ...keyColumn('name', textColumn), title: 'Name' },
-    { ...keyColumn('role', textColumn), title: 'Role' },
+    {
+      ...keyColumn(
+        'role',
+        selectColumn({
+          choices: [
+            { value: 'chocolate', label: 'Role 1' },
+            { value: 'strawberry', label: 'Role 2' },
+            { value: 'vanilla', label: 'Role 3' },
+          ],
+        }),
+      ),
+      title: 'Role',
+    },
     {
       ...keyColumn(
         'location',
@@ -236,7 +279,8 @@ export const InputTableGrid = () => {
             value={location.data}
             onChange={newData => {
               const updatedLocations = [...employeeLocations]
-              updatedLocations[index].data = newData
+              updatedLocations[index].data =
+                newData as unknown as LocationData['data']
               setLocations(updatedLocations)
             }}
             columns={locationColumns}

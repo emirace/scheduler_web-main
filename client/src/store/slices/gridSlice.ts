@@ -7,8 +7,8 @@ export type Choice = {
 
 export type Row = {
   name: string | null
-  role: string | null
-  location: string | null
+  role: string[] | null
+  location: string[] | null
   unavail_dates: string | null
 }
 
@@ -57,8 +57,8 @@ const defaultLocationData = [
 
 export const gridSlice: StateCreator<GridSliceT> = set => ({
   data: [
-    { name: 'chocolate', role: 'choco', location: 'locA', unavail_dates: null },
-    { name: 'chocolate', role: 'choco', location: 'locA', unavail_dates: null },
+    { name: 'chocolate', role: [], location: [], unavail_dates: null },
+    { name: 'chocolate', role: [], location: [], unavail_dates: null },
   ],
   employeeLocations: [],
   selectedLocations: [],
