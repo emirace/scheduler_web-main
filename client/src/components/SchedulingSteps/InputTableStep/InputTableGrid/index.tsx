@@ -12,6 +12,7 @@ import Select, { GroupBase, SelectInstance } from 'react-select'
 
 import 'react-datasheet-grid/dist/style.css'
 import styles from './InputTableGrid.module.scss'
+
 import { useStore } from '@/store/useStore'
 
 type Choice = {
@@ -42,6 +43,8 @@ const SelectComponent = React.memo(
         ref.current?.blur()
       }
     }, [focus])
+
+    console.log(columnData)
 
     return (
       <Select
@@ -109,23 +112,14 @@ const selectColumn = (
     options.choices.find(choice => choice.label === value)?.value ?? null,
 })
 
-type Row = {
-  name: string | null
-  role: string | null
-  location: string | null
-  unavail_dates: string | null
-}
-
-// import { useGridStore } from '../store/gridStore' // Import the zustand store
-
 export const InputTableGrid = () => {
-  // Use zustand state and actions instead of local useState
   const {
     data,
     setData,
-    locations,
+    employeeLocations,
     addLocation,
     removeLocation,
+    setLocations,
     isPopupOpen,
     setPopupOpen,
     selectedLocations,
@@ -193,17 +187,17 @@ export const InputTableGrid = () => {
             <button
               onClick={() => {
                 addLocation(newLocationName)
-                setPopupOpen(false) // Hide the popup after adding
+                setPopupOpen(false)
               }}
               className={styles.addButton}
             >
-              ✔️ {/* Green check sign */}
+              ✔️
             </button>
             <button
               onClick={() => setPopupOpen(false)}
               className={styles.cancelButton}
             >
-              ❌ {/* Red close sign */}
+              ❌
             </button>
           </div>
         ) : (
@@ -216,21 +210,22 @@ export const InputTableGrid = () => {
         )}
       </div>
 
-      {/* Map through locations from zustand state */}
-      {locations.map((location, index) => (
+      {employeeLocations.map((location, index) => (
         <div key={index} className={styles.tableWrapper}>
           <div className={styles.locationHeader}>
             <input
               type="text"
               value={location.name}
               onChange={e => {
-                const updatedLocations = [...locations]
+                const updatedLocations = [...employeeLocations]
                 updatedLocations[index].name = e.target.value
-                setLocations(updatedLocations) // Use zustand setter
+                setLocations(updatedLocations)
               }}
-              className={styles.editableTitle} // Add a class for styling
+              className={styles.editableTitle}
               onKeyDown={e => {
-                if (e.key === 'Enter') e.preventDefault() // Prevent line breaks
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                }
               }}
             />
             <button onClick={() => removeLocation(index)} className="btn-icon">
@@ -240,9 +235,9 @@ export const InputTableGrid = () => {
           <DataSheetGrid
             value={location.data}
             onChange={newData => {
-              const updatedLocations = [...locations]
+              const updatedLocations = [...employeeLocations]
               updatedLocations[index].data = newData
-              setLocations(updatedLocations) // Use zustand setter
+              setLocations(updatedLocations)
             }}
             columns={locationColumns}
             stickyRightColumn={{
@@ -259,8 +254,8 @@ export const InputTableGrid = () => {
       <div>
         <h3>Employees</h3>
         <DataSheetGrid
-          value={data} // Use zustand state for employee data
-          onChange={setData} // Use zustand setter for employee data
+          value={data}
+          onChange={setData}
           columns={employeeColumns}
           stickyRightColumn={{
             component: ({ deleteRow }) => (

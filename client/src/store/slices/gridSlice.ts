@@ -1,6 +1,5 @@
 import { StateCreator } from 'zustand'
 
-// Define the types for your grid data
 export type Choice = {
   label: string
   value: string
@@ -28,11 +27,11 @@ export type LocationData = {
 }
 
 export type GridSliceT = {
-  data: Row[] // Employee data
-  locations: LocationData[] // Location table data
-  selectedLocations: Choice[] // MultiSelect selected values
-  isPopupOpen: boolean // Popup state for adding new location
-  newLocationName: string // The name of the new location to be added
+  data: Row[]
+  employeeLocations: LocationData[]
+  selectedLocations: Choice[]
+  isPopupOpen: boolean
+  newLocationName: string
   addLocation: (name: string) => void
   setPopupOpen: (isOpen: boolean) => void
   setData: (newData: Row[]) => void
@@ -56,29 +55,31 @@ const defaultLocationData = [
   },
 ]
 
-// Define the state slice using `zustand`
 export const gridSlice: StateCreator<GridSliceT> = set => ({
   data: [
-    { name: 'chocolate', role: 'choco', location: 'locA', unavail_dates: '' },
-    { name: 'chocolate', role: 'choco', location: 'locA', unavail_dates: '' },
-    { name: null, role: null, location: null, unavail_dates: null },
+    { name: 'chocolate', role: 'choco', location: 'locA', unavail_dates: null },
+    { name: 'chocolate', role: 'choco', location: 'locA', unavail_dates: null },
   ],
-  locations: [],
+  employeeLocations: [],
   selectedLocations: [],
   isPopupOpen: false,
   newLocationName: '',
   addLocation: name =>
     set(state => ({
-      locations: [...state.locations, { name, data: [...defaultLocationData] }],
+      employeeLocations: [
+        ...state.employeeLocations,
+        { name, data: [...defaultLocationData] },
+      ],
     })),
   setPopupOpen: isOpen => set(() => ({ isPopupOpen: isOpen })),
   setData: newData => set(() => ({ data: newData })),
   setSelectedLocations: selected =>
     set(() => ({ selectedLocations: selected })),
-  setLocations: newLocations => set(() => ({ locations: newLocations })),
+  setLocations: newLocations =>
+    set(() => ({ employeeLocations: newLocations })),
   setNewLocationName: name => set(() => ({ newLocationName: name })),
   removeLocation: index =>
     set(state => ({
-      locations: state.locations.filter((_, i) => i !== index),
+      employeeLocations: state.employeeLocations.filter((_, i) => i !== index),
     })),
 })

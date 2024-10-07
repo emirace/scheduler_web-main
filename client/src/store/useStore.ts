@@ -7,6 +7,7 @@ import {
   gettingStartedSlice,
   GettingStartedStateT,
 } from './slices/gettingStartedSlice'
+import { gridSlice, GridSliceT } from './slices/gridSlice'
 import { loadingSlice, LoadingSliceT } from './slices/loadingSlice'
 import { locationsSlice, LocationsStateT } from './slices/locationsSlice'
 import { modalSlice, ModalSliceT } from './slices/modalSlice'
@@ -21,7 +22,6 @@ import {
 } from './slices/scheduleSlice'
 
 import { findFirstShiftDate } from '@/utils/findFirstShiftDate'
-import { gridSlice, GridSliceT } from './slices/gridSlice'
 
 type MyState = ModalSliceT &
   LoadingSliceT &
@@ -75,9 +75,12 @@ export const useStore = create<MyState>(
       scheduleName: state.scheduleName,
       filters: state.filters,
       locations: state.locations,
+      employeeLocations: state.employeeLocations,
       isGettingStartedClosed: state.isGettingStartedClosed,
       startDate: state.startDate,
       endDate: state.endDate,
+      data: state.data,
+      newLocationName: state.newLocationName,
     }),
   }) as StateCreator<MyState>,
 )
